@@ -1,10 +1,7 @@
 <h1>Junimo status tracker</h1>
 
-<div *ngFor="let zone of zones">
+<div *ngFor="let zone of (zones$ | async)">
   {{zone.name}}
 </div>
+<p>{{url$ | async}}</p>
 
-<div>
-  <p>{{zones$ | async}}</p>
-  <p (click)="increment()">Increment!</p>
-</div>

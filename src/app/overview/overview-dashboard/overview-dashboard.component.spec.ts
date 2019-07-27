@@ -1,23 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OverviewDashboardComponent } from './overview-dashboard.component';
+import { Store, StoreModule } from '@ngrx/store';
 
 describe('OverviewDashboardComponent', () => {
   let component: OverviewDashboardComponent;
-  let fixture: ComponentFixture<OverviewDashboardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OverviewDashboardComponent ]
-    })
-    .compileComponents();
-  }));
+      imports: [
+        StoreModule.forRoot({}),
+      ],
+      declarations: [OverviewDashboardComponent],
+      providers: [Store]
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(OverviewDashboardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    component = TestBed.createComponent(OverviewDashboardComponent).componentInstance;
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

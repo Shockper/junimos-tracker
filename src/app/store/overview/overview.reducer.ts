@@ -1,15 +1,15 @@
 import { createReducer, on } from '@ngrx/store';
-import { increment } from './overview.actions';
+import { Constants } from '../../constants';
+import { IZone } from '../../overview/overview-dashboard/models';
 
 export interface OverviewState {
-  zones: any;
+  zones: IZone[];
 }
 
 const initialState: OverviewState = {
-  zones: 32
+  zones: Constants.zones
 };
 
 export const overviewReducer = createReducer(
-  initialState,
-  on(increment, (state: OverviewState) => ({...state, zones: state.zones + 1}))
+  initialState
 );

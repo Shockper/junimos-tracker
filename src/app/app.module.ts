@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { environment } from '../environments/environment';
       }
     }),
     !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

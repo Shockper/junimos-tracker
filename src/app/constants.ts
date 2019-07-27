@@ -3,14 +3,14 @@ export class Constants {
 
   public static zones = [
     {
-      idZone: 1,
+      id: 1,
       name: 'Crafts Room',
       reward: 'Bridge Repair',
       flowers: [
         {
-          idFlower: 1,
+          id: 1,
           name: 'Spring Foraging Bundle',
-          numRequired: 4,
+          required: 4,
           completed: true,
           items: [
             {
@@ -24,14 +24,14 @@ export class Constants {
       ]
     },
     {
-      idZone: 2,
+      id: 2,
       name: 'Pantry',
       reward: 'Greenhouse',
       flowers: [
         {
-          idFlower: 1,
+          id: 1,
           name: 'Spring Crops Bundle',
-          numRequired: 4,
+          required: 4,
           completed: false,
           items: [
             {
