@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OverviewModule } from './overview/overview.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './store/app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -12,7 +16,15 @@ import { OverviewModule } from './overview/overview.module';
   imports: [
     BrowserModule,
     OverviewModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
   ],
   providers: [],
   bootstrap: [AppComponent]

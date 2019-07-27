@@ -1,1 +1,10 @@
-<p>overview-dashboard works!</p>
+<h1>Junimo status tracker</h1>
+
+<div *ngFor="let zone of zones">
+  {{zone.name}}
+</div>
+
+<div>
+  <p>{{zones$ | async}}</p>
+  <p (click)="increment()">Increment!</p>
+</div>
